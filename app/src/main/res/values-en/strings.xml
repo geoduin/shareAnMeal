@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">KookPagin</string>
+    <string name="setting">Option</string>
+    <string name="inspectieTag">Inspector</string>
+    <string name="titel">Title</string>
+    <string name="datum">Date</string>
+    <string name="stad">City</string>
+    <string name="prijs">Price</string>
+    <string name="loading_word">Wait...</string>
+    <string name="Details_Realisatie">Details realised</string>
+    <string name="detail_maaltijd">Hello</string>
+    <string name="opslaan">onSaveInstanceState</string>
+    <string name="selectie_optie">\"Selected option. Id = \"</string>
+    <string name="wifiStatus">\"WI-FI \"</string>
+    <string name="proost">\"Cheers: \"</string>
+    <string name="toolbar_creatie">Top bar created</string>
+    <string name="Wifi_controle">Checks the wifi</string>
+    <string name="Maaltijden">\Amount of meals:  \</string>
+    <string name="emailadress">Emailaddress</string>
+    <string name="wachtwoord">Password</string>
+    <string name="registreren">Register</string>
+    <string name="foutWachtwoord">Password is incorrect</string>
+    <string name="voornaam">Voornaam</string>
+    <string name="telefoonnummer">Telefoonnummer</string>
+    <string name="straat">Straat</string>
+</resources>

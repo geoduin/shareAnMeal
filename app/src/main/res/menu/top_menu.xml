@@ -1,0 +1,13 @@
+<menu
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/"
+    tools:context="com.example.kookpagin">
+    <item android:id="@+id/setting"
+        android:title="@string/setting"
+        app:showAsAction="never"/>
+    <item android:id="@+id/inlog"
+        android:title="@string/logIn"
+        app:showAsAction="never"/>
+
+</menu>

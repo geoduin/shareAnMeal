@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="dummyLanden">
+        <item>Palestina</item>
+        <item>Kosovo</item>
+        <item>Zuid-ossetië</item>
+        <item>Taiwan</item>
+        <item>Donetsk</item>
+        <item>Loehansk</item>
+        <item>Sealand</item>
+        <item>Koerdistan</item>
+    </string-array>
+    <string-array name="dummyStraten">
+        <item>PalestinaStraat 1</item>
+        <item>KosovoStraat 2</item>
+        <item>Zuid-ossetiëStraat 3</item>
+        <item>TaipingPlein 4</item>
+        <item>Centraal Donetsk 5</item>
+        <item>Loehanskstraat 6</item>
+        <item>Noordzee 7</item>
+        <item>Koerdistraat 8</item>
+    </string-array>
+    <string-array name="dummyPostcode">
+        <item>2133 IS</item>
+        <item>2244 SE</item>
+        <item>2355 GO</item>
+        <item>2466 CH</item>
+        <item>2577 UK</item>
+        <item>2688 UK</item>
+        <item>2799 EN</item>
+        <item>2800 MO</item>
+    </string-array>
+    <string-array name="dummyIngredientNamen">
+        <item>Wortel</item>
+        <item>Tomaat</item>
+        <item>sla</item>
+        <item>Ui</item>
+        <item>Vlees</item>
+    </string-array>
+    <string-array name="dummyUrls">
+        <item>niemand zal dit ooit zien</item>
+        <item>niemand zal dit ooit zien</item>
+        <item>niemand zal dit ooit zien</item>
+        <item>niemand zal dit ooit zien</item>
+        <item>niemand zal dit ooit zien</item>
+    </string-array>
+</resources>

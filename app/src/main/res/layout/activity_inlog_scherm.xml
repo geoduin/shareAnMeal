@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#4E9851"
+    tools:context=".InlogScherm">
+
+    <TextView
+        android:id="@+id/WachtwoordVeld"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/wachtwoord"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/EmailAddressField" />
+
+    <EditText
+        android:id="@+id/EmailAddressField"
+        android:layout_width="237dp"
+        android:layout_height="46dp"
+        android:background="#FFFFFF"
+        android:ems="10"
+        android:inputType="textEmailAddress"
+        app:layout_constraintStart_toStartOf="@+id/EmailVeld"
+        app:layout_constraintTop_toBottomOf="@+id/EmailVeld" />
+
+    <EditText
+        android:id="@+id/wachtwoordVeld"
+        android:layout_width="237dp"
+        android:layout_height="46dp"
+        android:background="#FFFFFF"
+        android:ems="10"
+        android:inputType="textEmailAddress"
+        app:layout_constraintStart_toStartOf="@+id/WachtwoordVeld"
+        app:layout_constraintTop_toBottomOf="@+id/WachtwoordVeld" />
+
+    <TextView
+        android:id="@+id/EmailVeld"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="156dp"
+
+        android:text="@string/emailadress"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/InlogKnop"
+        android:layout_width="51dp"
+        android:layout_height="167dp"
+        app:icon="@drawable/ic_arrow"
+        app:layout_constraintBottom_toBottomOf="@+id/wachtwoordVeld"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.507"
+        android:onClick="logIn"
+        app:layout_constraintStart_toEndOf="@+id/wachtwoordVeld" />
+
+    <Button
+        android:id="@+id/register"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:text="@string/registreren"
+        app:layout_constraintBottom_toTopOf="@+id/InlogKnop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:onClick="registeren"
+        app:layout_constraintVertical_bias="0.148" />
+
+    <TextView
+        android:id="@+id/warning"
+        android:layout_width="131dp"
+        android:layout_height="18dp"
+        android:text=""
+        android:textColor="#F6CDCD"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/wachtwoordVeld"
+        app:layout_constraintTop_toBottomOf="@+id/wachtwoordVeld"
+        app:layout_constraintVertical_bias="0.034" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

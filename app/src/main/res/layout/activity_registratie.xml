@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Registratie">
+
+    <EditText
+        android:id="@+id/achternaamVeld"
+        android:layout_width="115dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="96dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text=""
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/achternaam" />
+
+    <TextView
+        android:id="@+id/achternaam"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="72dp"
+        android:text="@string/achternaam"
+        app:layout_constraintStart_toStartOf="@+id/achternaamVeld"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/VoornaamVeld"
+        android:layout_width="113dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="16dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toStartOf="@+id/achternaamVeld"
+        app:layout_constraintHorizontal_bias="0.76"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/voornaam" />
+
+    <TextView
+        android:id="@+id/voornaam"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="72dp"
+        android:text="@string/voornaam"
+        app:layout_constraintStart_toStartOf="@+id/VoornaamVeld"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/emailVeld"
+        android:layout_width="261dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="4dp"
+        android:ems="10"
+        android:inputType="textEmailAddress"
+        app:layout_constraintStart_toStartOf="@+id/emailAdres"
+        app:layout_constraintTop_toBottomOf="@+id/emailAdres" />
+
+    <TextView
+        android:id="@+id/emailAdres"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/emailadress"
+        app:layout_constraintStart_toStartOf="@+id/VoornaamVeld"
+        app:layout_constraintTop_toBottomOf="@+id/VoornaamVeld" />
+
+    <EditText
+        android:id="@+id/wachtwoordVeld"
+        android:layout_width="263dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="4dp"
+        android:ems="10"
+        android:inputType="textPassword"
+        app:layout_constraintStart_toStartOf="@+id/Wachtwoord"
+        app:layout_constraintTop_toBottomOf="@+id/Wachtwoord" />
+
+    <TextView
+        android:id="@+id/Wachtwoord"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/wachtwoord"
+        app:layout_constraintStart_toStartOf="@+id/emailVeld"
+        app:layout_constraintTop_toBottomOf="@+id/emailVeld" />
+
+    <TextView
+        android:id="@+id/TelefoonNummer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/telefoonnummer"
+        app:layout_constraintStart_toStartOf="@+id/wachtwoordVeld"
+        app:layout_constraintTop_toBottomOf="@+id/wachtwoordVeld" />
+
+    <EditText
+        android:id="@+id/TelefoonNummerVeld"
+        android:layout_width="262dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="1dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text=""
+        app:layout_constraintStart_toStartOf="@+id/TelefoonNummer"
+        app:layout_constraintTop_toBottomOf="@+id/TelefoonNummer" />
+
+    <TextView
+        android:id="@+id/Straat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/straat"
+        app:layout_constraintStart_toStartOf="@+id/TelefoonNummerVeld"
+        app:layout_constraintTop_toBottomOf="@+id/TelefoonNummerVeld" />
+
+    <TextView
+        android:id="@+id/Stadv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/stad"
+        app:layout_constraintStart_toStartOf="@+id/Straatveld"
+        app:layout_constraintTop_toBottomOf="@+id/Straatveld" />
+
+    <EditText
+        android:id="@+id/Straatveld"
+        android:layout_width="262dp"
+        android:layout_height="42dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toStartOf="@+id/Straat"
+        app:layout_constraintTop_toBottomOf="@+id/Straat" />
+
+    <EditText
+        android:id="@+id/stadVeld"
+        android:layout_width="261dp"
+        android:layout_height="45dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toStartOf="@+id/Stadv"
+        app:layout_constraintTop_toBottomOf="@+id/Stadv" />
+
+    <Button
+        android:id="@+id/Registrerem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:text="registreer"
+        android:onClick="registratie"
+        app:layout_constraintStart_toStartOf="@+id/stadVeld"
+        app:layout_constraintTop_toBottomOf="@+id/stadVeld" />
+
+    <TextView
+        android:id="@+id/warn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
