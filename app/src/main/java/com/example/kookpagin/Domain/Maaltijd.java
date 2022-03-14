@@ -24,23 +24,21 @@ public class Maaltijd implements Parcelable {
     private boolean Vega;
     private boolean Vegan;
 
-    //Hoe moet je tabel maken met een object als attribuut binnen de domein klasse?
-
-    public Maaltijd(String naam, String beschrijving, String AfbeeldingsUrl,double prijs, Locatie locatie, LocalDateTime datum, Gebruiker gebruiker, int maxBezoekers, boolean isActief, boolean takeAway, boolean IsVega, boolean isVegan){
+    public Maaltijd(String naam, String beschrijving, String afbeeldingsUrl, double prijs, LocalDateTime datum, Locatie locatie, Gebruiker orginelePoster, boolean takeAway, boolean isActief, boolean vega, boolean vegan, int deelnemers) {
         this.naam = naam;
         this.beschrijving = beschrijving;
-        this.AfbeeldingsUrl = AfbeeldingsUrl;
-        this.datum = datum;
-        this.OrginelePoster = gebruiker;
-        this.deelnemers = new Gebruiker[maxBezoekers];
-        this.ingredientenLijst = new ArrayList<>();
-        this.allergenenLijst = new ArrayList<>();
-        this.locatie = locatie;
+        this.AfbeeldingsUrl = afbeeldingsUrl;
         this.prijs = prijs;
-        this.takeAway =takeAway;
+        this.datum = datum;
+        this.locatie = locatie;
+        OrginelePoster = orginelePoster;
+        this.deelnemers = new Gebruiker[deelnemers];
+        this.ingredientenLijst = new ArrayList<>();
+        this.allergenenLijst = new ArrayList<>();;
+        this.takeAway = takeAway;
         this.isActief = isActief;
-        this.Vegan =isVegan;
-        this.Vega = IsVega;
+        Vega = vega;
+        Vegan = vegan;
     }
 
     //Overloaded constructor voor het ophalen van bestaande maaltijden zonder locatie
@@ -48,12 +46,13 @@ public class Maaltijd implements Parcelable {
         this.naam = naam;
         this.beschrijving = beschrijving;
         this.AfbeeldingsUrl = AfbeeldingsUrl;
+        this.prijs = prijs;
         this.datum = datum;
+        this.locatie = getLocatie();
         this.OrginelePoster = gebruiker;
         this.deelnemers = new Gebruiker[maxBezoekers];
         this.ingredientenLijst = new ArrayList<>();
         this.allergenenLijst = new ArrayList<>();
-        this.prijs = prijs;
         this.takeAway =takeAway;
         this.isActief = isActief;
         this.Vegan =isVegan;
@@ -65,16 +64,147 @@ public class Maaltijd implements Parcelable {
         beschrijving = in.readString();
         AfbeeldingsUrl = in.readString();
         prijs = in.readDouble();
+        datum = (LocalDateTime) in.readSerializable();
         locatie = in.readParcelable(Locatie.class.getClassLoader());
         OrginelePoster = in.readParcelable(Gebruiker.class.getClassLoader());
         deelnemers = in.createTypedArray(Gebruiker.CREATOR);
         ingredientenLijst = in.createTypedArrayList(Ingrediënt.CREATOR);
         allergenenLijst = in.createTypedArrayList(Ingrediënt.CREATOR);
-        datum = (LocalDateTime)in.readSerializable();
         takeAway = in.readByte() != 0;
         isActief = in.readByte() != 0;
         Vega = in.readByte() != 0;
         Vegan = in.readByte() != 0;
+    }
+    public String getStad(){
+        if(locatie == null){
+            return "Onbekend";
+        }
+        String stad = locatie.getPlaats();
+        return stad;
+    }
+
+    public String haalDatumOp(){
+        String date = this.datum.toString();
+        return  date;
+    }
+    public String getOPVoorEnAchterNaam(){
+        return this.OrginelePoster.getVoorNaam() + " " +this.OrginelePoster.getAchterNaam();
+    }
+
+    public void setNaam(String naam) {
+        this.naam = naam;
+    }
+
+    public void setBeschrijving(String beschrijving) {
+        this.beschrijving = beschrijving;
+    }
+
+    public void setAfbeeldingsUrl(String afbeeldingsUrl) {
+        AfbeeldingsUrl = afbeeldingsUrl;
+    }
+
+    public void setPrijs(double prijs) {
+        this.prijs = prijs;
+    }
+
+    public void setDatum(LocalDateTime datum) {
+        this.datum = datum;
+    }
+
+    public void setLocatie(Locatie locatie) {
+        this.locatie = locatie;
+    }
+
+    public void setOrginelePoster(Gebruiker orginelePoster) {
+        OrginelePoster = orginelePoster;
+    }
+
+    public void setDeelnemers(Gebruiker[] deelnemers) {
+        this.deelnemers = deelnemers;
+    }
+
+    public void setIngredientenLijst(List<Ingrediënt> ingredientenLijst) {
+        this.ingredientenLijst = ingredientenLijst;
+    }
+
+    public void setAllergenenLijst(List<Ingrediënt> allergenenLijst) {
+        this.allergenenLijst = allergenenLijst;
+    }
+
+    public void setTakeAway(boolean takeAway) {
+        this.takeAway = takeAway;
+    }
+
+    public void setActief(boolean actief) {
+        isActief = actief;
+    }
+
+    public void setVega(boolean vega) {
+        Vega = vega;
+    }
+
+    public void setVegan(boolean vegan) {
+        Vegan = vegan;
+    }
+
+    public String getNaam() {
+        return naam;
+    }
+
+    public String getBeschrijving() {
+        return beschrijving;
+    }
+
+    public String getAfbeeldingsUrl() {
+        return AfbeeldingsUrl;
+    }
+
+    public double getPrijs() {
+        return prijs;
+    }
+
+    public LocalDateTime getDatum() {
+        return datum;
+    }
+
+    public Locatie getLocatie() {
+        return locatie;
+    }
+
+    public Gebruiker getOrginelePoster() {
+        return OrginelePoster;
+    }
+
+    public Gebruiker[] getDeelnemers() {
+        return deelnemers;
+    }
+
+    public List<Ingrediënt> getIngredientenLijst() {
+        return ingredientenLijst;
+    }
+
+    public List<Ingrediënt> getAllergenenLijst() {
+        return allergenenLijst;
+    }
+
+    public boolean isTakeAway() {
+        return takeAway;
+    }
+
+    public boolean isActief() {
+        return isActief;
+    }
+
+    public boolean isVega() {
+        return Vega;
+    }
+
+    public boolean isVegan() {
+        return Vegan;
+    }
+
+    public static Creator<Maaltijd> getCREATOR() {
+        return CREATOR;
     }
 
     @Override
@@ -83,12 +213,12 @@ public class Maaltijd implements Parcelable {
         dest.writeString(beschrijving);
         dest.writeString(AfbeeldingsUrl);
         dest.writeDouble(prijs);
+        dest.writeSerializable(datum);
         dest.writeParcelable(locatie, flags);
         dest.writeParcelable(OrginelePoster, flags);
         dest.writeTypedArray(deelnemers, flags);
         dest.writeTypedList(ingredientenLijst);
         dest.writeTypedList(allergenenLijst);
-        dest.writeSerializable(datum);
         dest.writeByte((byte) (takeAway ? 1 : 0));
         dest.writeByte((byte) (isActief ? 1 : 0));
         dest.writeByte((byte) (Vega ? 1 : 0));
@@ -111,125 +241,4 @@ public class Maaltijd implements Parcelable {
             return new Maaltijd[size];
         }
     };
-
-    public String getNaam() {
-        return naam;
-    }
-
-    public String getAfbeeldingsUrl() {
-        return AfbeeldingsUrl;
-    }
-
-    public void setAfbeeldingsUrl(String afbeeldingsUrl) {
-        AfbeeldingsUrl = afbeeldingsUrl;
-    }
-
-    public LocalDateTime getDatum() {
-        return datum;
-    }
-
-    public void setDatum(LocalDateTime datum) {
-        this.datum = datum;
-    }
-
-    public Gebruiker getOrginelePoster() {
-        return OrginelePoster;
-    }
-
-    public void setOrginelePoster(Gebruiker orginelePoster) {
-        OrginelePoster = orginelePoster;
-    }
-
-    public Gebruiker[] getDeelnemers() {
-        return deelnemers;
-    }
-
-    public void setDeelnemers(Gebruiker[] deelnemers) {
-        this.deelnemers = deelnemers;
-    }
-
-    public List<Ingrediënt> getIngredientenLijst() {
-        return ingredientenLijst;
-    }
-
-    public void setIngredientenLijst(List<Ingrediënt> ingredientenLijst) {
-        this.ingredientenLijst = ingredientenLijst;
-    }
-
-    public List<Ingrediënt> getAllergenenLijst() {
-        return allergenenLijst;
-    }
-
-    public void setAllergenenLijst(List<Ingrediënt> allergenenLijst) {
-        this.allergenenLijst = allergenenLijst;
-    }
-
-    public boolean isTakeAway() {
-        return takeAway;
-    }
-
-    public void setTakeAway(boolean takeAway) {
-        this.takeAway = takeAway;
-    }
-
-    public boolean isActief() {
-        return isActief;
-    }
-
-    public void setActief(boolean actief) {
-        isActief = actief;
-    }
-
-    public String getBeschrijving() {
-        return beschrijving;
-    }
-
-    public String getOPVoorEnAchterNaam(){
-        return this.OrginelePoster.getVoorNaam() + " " +this.OrginelePoster.getAchterNaam();
-    }
-
-    public boolean isVega() {
-        return Vega;
-    }
-
-    public void setVega(boolean vega) {
-        Vega = vega;
-    }
-
-    public boolean isVegan() {
-        return Vegan;
-    }
-
-    public void setVegan(boolean vegan) {
-        Vegan = vegan;
-    }
-
-    public String getStad(){
-        if(locatie == null){
-            return "Onbekend";
-        }
-        String stad = locatie.getPlaats();
-        return stad;
-    }
-
-    public void setLocatie(String straatHnR, String postcode, String stad){
-        this.locatie = new Locatie(straatHnR, postcode, stad);
-    }
-
-    public double getPrijs(){
-        return  prijs;
-    }
-
-    public String haalDatumOp(){
-        String date = this.datum.toString();
-        return  date;
-    }
-
-    public void addAllergies(Ingrediënt ingredient){
-        this.allergenenLijst.add(ingredient);
-    }
-
-    public void addIngredient(Ingrediënt ingredient){
-        this.ingredientenLijst.add(ingredient);
-    }
 }

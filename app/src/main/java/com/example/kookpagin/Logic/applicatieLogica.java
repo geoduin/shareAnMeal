@@ -61,8 +61,6 @@ public class applicatieLogica {
     }
 
     public Gebruiker logIn(String email, String wachtwoord){
-
-
         return null;
     }
 

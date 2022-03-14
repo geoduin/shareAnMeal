@@ -42,7 +42,7 @@ public class Netwerk {
             if (builder.length() == 0) {
                 return null;
             }
-
+            Log.d("tag", builder.toString());
             JSON_String = builder.toString();
         } catch (IOException e) {
             e.printStackTrace();

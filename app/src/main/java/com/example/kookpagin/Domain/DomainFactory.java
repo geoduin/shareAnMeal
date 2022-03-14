@@ -5,7 +5,7 @@ import java.time.LocalDateTime;
 public class DomainFactory {
 
     public static Maaltijd maakMaaltijd(String naam, String beschrijving, String AfbeeldingsUrl,double prijs, Locatie locatie, LocalDateTime datum, Gebruiker gebruiker, int maxBezoekers, boolean isActief, boolean takeAway, boolean vega, boolean vegan){
-        return new Maaltijd(naam, beschrijving, AfbeeldingsUrl, prijs, locatie, datum, gebruiker, maxBezoekers,  isActief,  takeAway, vega, vegan);
+        return new Maaltijd(naam, beschrijving, AfbeeldingsUrl, prijs, datum,locatie,  gebruiker,  isActief,  takeAway, vega, vegan, maxBezoekers);
     }
 
     public static Maaltijd MaaltijdZonderLocatie(String naam, String beschrijving, String AfbeeldingsUrl,double prijs, LocalDateTime datum, Gebruiker gebruiker, int maxBezoekers, boolean isActief, boolean takeAway, boolean vega, boolean vegan){

@@ -57,9 +57,7 @@ public class MaaltijdExternDBDao implements DaoInterface<Maaltijd>{
             for(int i = 0;  i < jsonArray.length(); i++){
                 //Locatie ontbreekt
                 Locatie locatie = null;
-                Gebruiker uploader = maakGebruiker(jsonArray, i);
                 Maaltijd maaltijd = kookMaaltijd(jsonArray, i);
-                maaltijd.setOrginelePoster(uploader);
                 maaltijd.setDeelnemers(deelnemers(jsonArray, i, maaltijd));
                 maaltijdenLijst.add(maaltijd);
                 //Allergenenlijst/Optioneel
@@ -84,12 +82,16 @@ public class MaaltijdExternDBDao implements DaoInterface<Maaltijd>{
         try {
             JSONObject pokeBowl = array.getJSONObject(i);
             JSONObject user = pokeBowl.getJSONObject("cook");
-            JSONArray roleArray = user.getJSONArray("role");
             StringBuilder build = new StringBuilder();
-            for (int k = 0; k < roleArray.length(); k++) {
-                String object = roleArray.getString(i);
-                build.append(object);
-                build.append(":");
+            try{
+                JSONArray roleArray = user.getJSONArray("role");
+                for (int k = 0; k < roleArray.length(); k++) {
+                    String object = roleArray.getString(i);
+                    build.append(object);
+                    build.append(":");
+                }
+            }catch (JSONException e){
+                e.printStackTrace();
             }
             int id = user.getInt("id");
             String phoneNumber = user.getString("phoneNumber");
@@ -155,7 +157,8 @@ public class MaaltijdExternDBDao implements DaoInterface<Maaltijd>{
             String prijs = pokeBowl.getString("price");
             Double price = Double.parseDouble(prijs);
             String imageUrl = pokeBowl.getString("imageUrl");
-            meal = DomainFactory.MaaltijdZonderLocatie(maaltijdNaam, beschrijving, imageUrl,price, date, null,maxAmountOfParticipants,isActive,isToTakeHome,isVega,isVegan);
+            Gebruiker uploader = maakGebruiker(array, i);
+            meal = DomainFactory.MaaltijdZonderLocatie(maaltijdNaam,beschrijving, imageUrl, price, date, uploader,maxAmountOfParticipants,isActive, isToTakeHome,isVega,isVegan);
         } catch (JSONException e) {
             e.printStackTrace();
         }

@@ -20,6 +20,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 public class detailPagina extends AppCompatActivity {
+    private static String tag = "Jul";
     private applicatieLogica logica;
     private ImageView image;
     private ImageView profiel;
@@ -41,7 +42,7 @@ public class detailPagina extends AppCompatActivity {
         logica = new applicatieLogica(DaoDB, new DomainFactory());
 
         Intent intent = getIntent();
-        Maaltijd maaltijd = intent.getParcelableExtra(MaaltijdAdapter.oke);
+        Maaltijd maaltijd = (Maaltijd)intent.getParcelableExtra(tag);
         saveFieldsToClass();
         fillActivityLayout(maaltijd);
     }

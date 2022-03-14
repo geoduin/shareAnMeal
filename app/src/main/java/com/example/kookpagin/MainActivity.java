@@ -52,9 +52,8 @@ public class MainActivity extends AppCompatActivity {
         //Later moet dit veranderen naar een lijst object
         Intent intent = getIntent();
         Gebruiker user = intent.getParcelableExtra(hulpGebruiker);
-
         mGebruiker = user;
-        Log.i("Start program", "Creeer gebruiker");
+
         //Instantieert factory
         this.mDomainFactory = new DomainFactory();
         this.mLogica = new applicatieLogica(daoInterface, mDomainFactory);
@@ -73,6 +72,7 @@ public class MainActivity extends AppCompatActivity {
         //Geeft een gridlayoutmanager door aan de recyclerView
         mRecyclerView.setLayoutManager(new GridLayoutManager(this, gridColumnCount));
         toast(maaltijdenLijst.toArray().length);
+        Log.i("Start program", "Creeer gebruiker, aantal items: " + maaltijdenLijst.toArray().length);
     }
 
     @Override

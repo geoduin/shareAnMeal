@@ -48,9 +48,7 @@ public class Gebruiker implements Parcelable {
         telefoonNummer = in.readString();
         wachtWoord = in.readString();
         userID = in.readInt();
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-            isActief = in.readBoolean();
-        }
+        isActief = in.readBoolean();
         stad = in.readString();
         street = in.readString();
         role = in.readString();
@@ -129,9 +127,8 @@ public class Gebruiker implements Parcelable {
         parcel.writeString(role);
         parcel.writeString(stad);
         parcel.writeString(street);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-            parcel.writeBoolean(isActief);
-        }
+        parcel.writeBoolean(isActief);
+
     }
 
     public boolean isActief() {
