@@ -9,3 +9,9 @@ Functionaliteit:
 - Filteren op vega of vegan opties
 - Details maaltijden bekijken
 
+
+Specificaties:
+
+API-Level 28 en hoger
+
+
