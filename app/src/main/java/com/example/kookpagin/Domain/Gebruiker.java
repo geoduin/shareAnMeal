@@ -4,6 +4,8 @@ import android.os.Build;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import androidx.annotation.NonNull;
+
 public class Gebruiker implements Parcelable {
     private Integer userID;
     private String VoorNaam;
@@ -48,7 +50,9 @@ public class Gebruiker implements Parcelable {
         telefoonNummer = in.readString();
         wachtWoord = in.readString();
         userID = in.readInt();
-        isActief = in.readBoolean();
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+            isActief = in.readBoolean();
+        }
         stad = in.readString();
         street = in.readString();
         role = in.readString();
@@ -124,14 +128,28 @@ public class Gebruiker implements Parcelable {
         parcel.writeString(telefoonNummer);
         parcel.writeString(wachtWoord);
         parcel.writeInt(userID);
-        parcel.writeString(role);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+            parcel.writeBoolean(isActief);
+        }
         parcel.writeString(stad);
         parcel.writeString(street);
-        parcel.writeBoolean(isActief);
+        parcel.writeString(role);
+    }
 
+    public String getStad() {
+        return stad;
+    }
+
+    public String getStreet() {
+        return street;
     }
 
     public boolean isActief() {
         return isActief;
+    }
+    @NonNull
+    @Override
+    public String toString() {
+        return String.format("%s:%s:%s:%s:%s:%s:%s:%s:%s:%s", userID,VoorNaam,AchterNaam,emailAddress,telefoonNummer,wachtWoord,isActief,stad,street,role);
     }
 }

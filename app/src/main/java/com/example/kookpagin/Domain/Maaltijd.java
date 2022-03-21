@@ -167,6 +167,13 @@ public class Maaltijd implements Parcelable {
         return datum;
     }
 
+    public String haalDatum(){
+        int day = datum.getDayOfMonth();
+        int month = datum.getMonthValue();
+        int year = datum.getYear();
+        return String.format("%s-%s-%s", day,month,year);
+    }
+
     public Locatie getLocatie() {
         return locatie;
     }
@@ -241,4 +248,5 @@ public class Maaltijd implements Parcelable {
             return new Maaltijd[size];
         }
     };
+
 }

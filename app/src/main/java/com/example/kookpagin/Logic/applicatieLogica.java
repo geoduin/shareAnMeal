@@ -1,67 +1,44 @@
 package com.example.kookpagin.Logic;
 
 import android.net.NetworkInfo;
+import android.util.Log;
 
 import com.example.kookpagin.Data.DaoInterface;
-import com.example.kookpagin.Data.Repository;
 import com.example.kookpagin.Domain.DomainFactory;
 import com.example.kookpagin.Domain.Gebruiker;
 import com.example.kookpagin.Domain.Ingrediënt;
-import com.example.kookpagin.Domain.Maaltijd;
 
 import java.util.List;
 import java.util.Random;
-import java.util.concurrent.ExecutionException;
 
 public class applicatieLogica {
     private DaoInterface dataOpslag;
     private DomainFactory factory;
-    private Repository repository;
+    private static final String Logic = "Logica";
 
     public applicatieLogica(DaoInterface soort, DomainFactory factory) {
         this.dataOpslag = soort;
         this.factory = factory;
-        this.repository = new Repository(soort);
     }
 
-    public List<Maaltijd> haalMaaltijdenOpUit(NetworkInfo wifiCheck){
-        List<Maaltijd>list = null;
-        try {
-            list = repository.retrieveData(wifiCheck);
-        } catch (ExecutionException e) {
-            e.printStackTrace();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        return list;
-    }
-
+    //Maakt een allergenen string
     public String geefAllergenenTerug(List<Ingrediënt> list){
         StringBuilder builder = new StringBuilder();
-        for (Ingrediënt ingredient:list) {
-            if(ingredient.isAllergic()){
-                builder.append(ingredient.getNaam() + ", ");
+        if(list.isEmpty()){
+            Log.e(Logic,"Er zijn geen allergenen");
+            return "Niets";
+
+        }
+        for (int i = 0; i < list.size(); i++) {
+            if(list.get(i).isAllergic() && i < list.size() - 2){
+                builder.append(list.get(i).getNaam() + ",");
+            } else{
+                builder.append(list.get(i).getNaam());
             }
         }
+        Log.e(Logic,"Allergenen succesvol toegevoegd");
         return builder.toString();
     }
 
-    //Checks if phone is connected to wifi
-    public boolean checkWifi(NetworkInfo wifiCheck) {
-        return wifiCheck.isConnected();
-    }
-
-    public boolean randomBoolean(){
-        Random random = new Random();
-        int a = random.nextInt(3);
-        if(a == 1){
-            return true;
-        }
-        return false;
-    }
-
-    public Gebruiker logIn(String email, String wachtwoord){
-        return null;
-    }
 
 }

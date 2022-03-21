@@ -1,30 +1,31 @@
 package com.example.kookpagin.Data;
 
+import android.app.Application;
+
+import androidx.lifecycle.MutableLiveData;
+
 import com.example.kookpagin.Domain.Maaltijd;
 
 import java.util.List;
 
-public class InterneDBDao implements DaoInterface<Maaltijd> {
+//Ongebruikte klasse
+public class InterneDBDao  {
+    private static volatile InterneDBDao dao;
+    public MutableLiveData<List<Maaltijd>> maaltijdenLijst;
 
-
-
-    @Override
-    public List<Maaltijd> retrieve() {
-        return null;
+    public InterneDBDao(Application app){
+        maaltijdenLijst = new MutableLiveData<>();
     }
 
-    @Override
-    public boolean insert(Maaltijd value) {
-        return false;
+    public static InterneDBDao instance(Application app){
+        if(dao == null){
+            dao = new InterneDBDao(app);
+        }
+        return dao;
     }
 
-    @Override
-    public boolean update(Maaltijd value) {
-        return false;
+    public MutableLiveData<List<Maaltijd>> getMaaltijdenLijstIntern() {
+        return maaltijdenLijst;
     }
 
-    @Override
-    public boolean delete(Maaltijd value) {
-        return false;
-    }
 }

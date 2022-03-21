@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">KookPagin</string>
+    <string name="app_name">Share a meal</string>
     <string name="setting">Option</string>
     <string name="inspectieTag">Inspector</string>
     <string name="titel">Title</string>
@@ -11,9 +11,9 @@
     <string name="Details_Realisatie">Details realised</string>
     <string name="detail_maaltijd">Hello</string>
     <string name="opslaan">onSaveInstanceState</string>
-    <string name="selectie_optie">\"Selected option. Id = \"</string>
-    <string name="wifiStatus">\"WI-FI \"</string>
-    <string name="proost">\"Cheers: \"</string>
+    <string name="selectie_optie">"Selected option. Id = "</string>
+    <string name="wifiStatus">\"WI-FI"</string>
+    <string name="proost">\"Cheers:"</string>
     <string name="toolbar_creatie">Top bar created</string>
     <string name="Wifi_controle">Checks the wifi</string>
     <string name="Maaltijden">\Amount of meals:  \</string>
@@ -21,7 +21,24 @@
     <string name="wachtwoord">Password</string>
     <string name="registreren">Register</string>
     <string name="foutWachtwoord">Password is incorrect</string>
-    <string name="voornaam">Voornaam</string>
-    <string name="telefoonnummer">Telefoonnummer</string>
-    <string name="straat">Straat</string>
+    <string name="voornaam">First name</string>
+    <string name="telefoonnummer">Phonenumber</string>
+    <string name="straat">Street</string>
+    <string name="aanmelden">Sign in</string>
+    <string name="UIassignment">UI assignment</string>
+    <string name="UIinvulling">UI fields filled</string>
+    <string name="toast">Toast</string>
+    <string name="achternaam">Surname</string>
+    <string name="plaats">Place</string>
+    <string name="title">Title</string>
+    <string name="beschrijving">Description</string>
+    <string name="geserveerd_op">Served on:</string>
+    <string name="allergenen">Allergenes:</string>
+    <string name="vega">Vegetarian</string>
+    <string name="vegan">Vegan</string>
+    <string name="vega_n_Optie">Filter</string>
+    <string name="isVegan">Only vegetarian or above</string>
+    <string name="isVega">Only vegan</string>
+    <string name="logIn">Log in</string>
+    <string name="filter">Filter</string>
 </resources>

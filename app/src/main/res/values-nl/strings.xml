@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">KookPagin</string>
+    <string name="app_name">Deel je maaltijd</string>
     <string name="setting">Optie</string>
     <string name="inspectieTag">Inspecteur</string>
     <string name="titel">titel</string>
@@ -24,4 +24,21 @@
     <string name="voornaam">Voornaam</string>
     <string name="telefoonnummer">Telefoonnummer</string>
     <string name="straat">Straat</string>
+    <string name="aanmelden">Aanmelden</string>
+    <string name="UIassignment">UI velden toegewezen</string>
+    <string name="UIinvulling">UI velden ingevuld</string>
+    <string name="toast">Toast</string>
+    <string name="achternaam">Achternaam</string>
+    <string name="plaats">Plaats</string>
+    <string name="title">Titel</string>
+    <string name="beschrijving">Beschrijving</string>
+    <string name="geserveerd_op">Geserveerd op:</string>
+    <string name="allergenen">Allergenen:</string>
+    <string name="vega">Vegetarisch</string>
+    <string name="vegan">Veganisch</string>
+    <string name="vega_n_Optie">optie</string>
+    <string name="isVegan">Minimaal veganistisch</string>
+    <string name="isVega">Minimaal vegetarisch</string>
+    <string name="logIn">Log in</string>
+    <string name="filter">Filter</string>
 </resources>

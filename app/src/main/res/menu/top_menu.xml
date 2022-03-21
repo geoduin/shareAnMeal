@@ -4,8 +4,9 @@
     xmlns:tools="http://schemas.android.com/"
     tools:context="com.example.kookpagin">
     <item android:id="@+id/setting"
-        android:title="@string/setting"
-        app:showAsAction="never"/>
+        android:title="@string/filter"
+        app:showAsAction="ifRoom" />
+
     <item android:id="@+id/inlog"
         android:title="@string/logIn"
         app:showAsAction="never"/>

@@ -1,4 +1,4 @@
-package com.example.kookpagin;
+package com.example.kookpagin.UI;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 import com.example.kookpagin.Domain.DomainFactory;
 import com.example.kookpagin.Domain.Gebruiker;
+import com.example.kookpagin.R;
 
 public class Registratie extends AppCompatActivity {
     private EditText mVoor;
@@ -25,6 +26,7 @@ public class Registratie extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registratie);
 
+        //Wijst editText views aan de xml-onderdelen
         mVoor = findViewById(R.id.VoornaamVeld);
         mAchter= findViewById(R.id.achternaamVeld);
         mMail = findViewById(R.id.emailVeld);
@@ -46,6 +48,7 @@ public class Registratie extends AppCompatActivity {
         String straat = mStraat.getText().toString();
         String rol = "";
         Gebruiker user = DomainFactory.maakGebruikerZonderWW(id, voornaam,achternaam,mail, telefoon, ww,stad, straat,true);
+        //Placeholder actie
         Toast.makeText(this,"Gebruiker aangemaakt", Toast.LENGTH_SHORT).show();
     }
 

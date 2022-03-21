@@ -23,5 +23,7 @@ public class DomainFactory {
         return new Ingrediënt(naam, afbeeldingUrl, isAllergic);
     }
 
-
+    public static Locatie maakLocatie(String plaats, String straatPlusHnr, String postCode){
+        return new Locatie(straatPlusHnr,postCode,plaats);
+    }
 }

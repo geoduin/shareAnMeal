@@ -44,7 +44,9 @@ public class Ingrediënt implements Parcelable {
     public void writeToParcel(Parcel des, int i) {
         des.writeString(naam);
         des.writeString(afbeeldingURL);
-        des.writeBoolean(isAllergic);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+            des.writeBoolean(isAllergic);
+        }
     }
 
 
