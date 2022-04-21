@@ -88,33 +88,13 @@
         app:layout_constraintTop_toBottomOf="@+id/emailVeld" />
 
     <TextView
-        android:id="@+id/TelefoonNummer"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="@string/telefoonnummer"
-        app:layout_constraintStart_toStartOf="@+id/wachtwoordVeld"
-        app:layout_constraintTop_toBottomOf="@+id/wachtwoordVeld" />
-
-    <EditText
-        android:id="@+id/TelefoonNummerVeld"
-        android:layout_width="262dp"
-        android:layout_height="42dp"
-        android:layout_marginTop="1dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text=""
-        app:layout_constraintStart_toStartOf="@+id/TelefoonNummer"
-        app:layout_constraintTop_toBottomOf="@+id/TelefoonNummer" />
-
-    <TextView
         android:id="@+id/Straat"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:text="@string/straat"
-        app:layout_constraintStart_toStartOf="@+id/TelefoonNummerVeld"
-        app:layout_constraintTop_toBottomOf="@+id/TelefoonNummerVeld" />
+        app:layout_constraintStart_toStartOf="@+id/wachtwoordVeld"
+        app:layout_constraintTop_toBottomOf="@+id/wachtwoordVeld" />
 
     <TextView
         android:id="@+id/Stadv"

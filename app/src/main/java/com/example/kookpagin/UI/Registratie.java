@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 import com.example.kookpagin.Domain.DomainFactory;
 import com.example.kookpagin.Domain.Gebruiker;
+import com.example.kookpagin.Logic.registratiess;
 import com.example.kookpagin.R;
 
 public class Registratie extends AppCompatActivity {
@@ -30,7 +31,6 @@ public class Registratie extends AppCompatActivity {
         mVoor = findViewById(R.id.VoornaamVeld);
         mAchter= findViewById(R.id.achternaamVeld);
         mMail = findViewById(R.id.emailVeld);
-        mTele = findViewById(R.id.TelefoonNummerVeld);
         mPw = findViewById(R.id.wachtwoordVeld);
         mStad = findViewById(R.id.stadVeld);
         mStraat = findViewById(R.id.Straatveld);
@@ -38,18 +38,19 @@ public class Registratie extends AppCompatActivity {
 
     public void registratie(View view) {
         //Id wordt niet gebruikt
-        int id = -1;
+        Integer id = null;
         String voornaam = mVoor.getText().toString();
         String achternaam = mAchter.getText().toString();
         String mail = mMail.getText().toString();
-        String telefoon = mTele.getText().toString();
         String ww = mPw.getText().toString();
         String stad= mStad.getText().toString();
         String straat = mStraat.getText().toString();
         String rol = "";
-        Gebruiker user = DomainFactory.maakGebruikerZonderWW(id, voornaam,achternaam,mail, telefoon, ww,stad, straat,true);
+        Gebruiker user = DomainFactory.maakGebruikerZonderWW(id, voornaam,achternaam,mail, null, ww,stad, straat,true);
         //Placeholder actie
         Toast.makeText(this,"Gebruiker aangemaakt", Toast.LENGTH_SHORT).show();
+        registratiess aa = new registratiess();
+        aa.execute(user);
     }
 
 

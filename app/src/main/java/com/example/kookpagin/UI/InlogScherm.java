@@ -42,6 +42,9 @@ public class InlogScherm extends AppCompatActivity {
     }
 
     public void registeren(View view) {
+
+        Intent intent = new Intent(this, Registratie.class);
+        startActivity(intent);
         Log.w(logInlog, "Placeholder methode. Doet niets");
     }
 }
