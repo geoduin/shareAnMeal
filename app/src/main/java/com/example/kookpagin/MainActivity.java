@@ -25,7 +25,7 @@ import com.example.kookpagin.UI.viewModels.maaltijdenViewModel;
 
 import java.util.ArrayList;
 import java.util.List;
-
+//
 public class MainActivity extends AppCompatActivity {
 
     //String keys
