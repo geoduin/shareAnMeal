@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
         //Geeft een gridlayoutmanager door aan de recyclerView
         int gridColumnCount = getResources().getInteger(R.integer.grid_column_count);
 
-        //Gridlayoutmanager
+        //Gridlayout's
         mRecyclerView.setLayoutManager(new GridLayoutManager(this, gridColumnCount));
         mModel = new maaltijdenViewModel(getApplication());
         //Laadt preferenceManager in
