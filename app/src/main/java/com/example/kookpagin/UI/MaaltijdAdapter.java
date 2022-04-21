@@ -51,9 +51,7 @@ public class MaaltijdAdapter extends RecyclerView.Adapter<MaaltijdAdapter.Maalti
         holder.prijs.setText(Double.toString(maaltijd.getPrijs()));
         holder.stad.setText(maaltijd.getStad());
         Glide.with(mContext).load(maaltijd.getAfbeeldingsUrl()).into(holder.image);
-        //Wijst maaltijd toe aan de holder
         Log.i(logger, "Maaltijd toegewezen aan een viewholder");
-        holder.setMaaltijd(maaltijd);
     }
 
     public void setList(List<Maaltijd> list) {
@@ -90,18 +88,13 @@ public class MaaltijdAdapter extends RecyclerView.Adapter<MaaltijdAdapter.Maalti
             itemView.setOnClickListener(this);
         }
 
-        //Ontvangt
-        public void setMaaltijd(Maaltijd maaltijd){
-            Log.i(logger, "Maaltijd ontvangen binnen item");
-            mMaaltijd = maaltijd;
-        }
-
         //Een onclick methode om de detailpagina van ieder maaltijd te openen
         @Override
         public void onClick(View view) {
+            Log.i(logger, "Transitie naar detailPagina");
+            mMaaltijd = list.get(getLayoutPosition());
             Intent intent = new Intent(mContext, detailPagina.class);
             intent.putExtra(oke, (Parcelable) mMaaltijd);
-            Log.i(logger, "Transitie naar detailPagina");
             mContext.startActivity(intent);
         }
     }

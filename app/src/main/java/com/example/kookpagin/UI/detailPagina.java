@@ -1,6 +1,7 @@
 package com.example.kookpagin.UI;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.preference.PreferenceManager;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -47,6 +48,8 @@ public class detailPagina extends AppCompatActivity {
         Maaltijd maaltijd = (Maaltijd)intent.getParcelableExtra(tag);
         saveFieldsToClass();
         fillActivityLayout(maaltijd);
+        Boolean man  = PreferenceManager.getDefaultSharedPreferences(this).getBoolean(FilterMenu.KEY_VEGA, false);
+        Toast.makeText(this, "Status is " + man , Toast.LENGTH_SHORT);
     }
 
     //Wijst onderdelen toe aan de xml

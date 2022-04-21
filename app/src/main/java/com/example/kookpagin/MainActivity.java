@@ -1,5 +1,6 @@
 package com.example.kookpagin;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -24,7 +25,7 @@ import com.example.kookpagin.UI.viewModels.maaltijdenViewModel;
 
 import java.util.ArrayList;
 import java.util.List;
-
+//
 public class MainActivity extends AppCompatActivity {
 
     //String keys
@@ -39,7 +40,6 @@ public class MainActivity extends AppCompatActivity {
     private DaoInterface daoInterface;
     private List<Maaltijd>HuidigeMaaltijdenLijst;
     private MaaltijdAdapter restaurantAdapter;
-    private Gebruiker mGebruiker;
     private maaltijdenViewModel mModel;
     private SharedPreferences voorkeuren;
 
@@ -48,10 +48,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Log.i("StartER", "Creeer gebruiker");
-        //Gebruiker ophalen
-        Intent intent = getIntent();
-        Gebruiker user = intent.getParcelableExtra(hulpGebruiker);
-        mGebruiker = user;
 
         //Instantieert Logica
         this.mLogica = new applicatieLogica(daoInterface, new DomainFactory());
@@ -62,42 +58,26 @@ public class MainActivity extends AppCompatActivity {
         //Geeft een gridlayoutmanager door aan de recyclerView
         int gridColumnCount = getResources().getInteger(R.integer.grid_column_count);
 
-        //Laadt preferenceManager in
-        PreferenceManager.setDefaultValues(this,R.xml.voorkeuren, false);
-        voorkeuren = PreferenceManager.getDefaultSharedPreferences(this);
-        Boolean isVega = voorkeuren.getBoolean(FilterMenu.KEY_VEGA, false);
-        Boolean isVegan = voorkeuren.getBoolean(FilterMenu.KEY_VEGAN, false);
-        Toast.makeText(this, "IsVega: " + isVega , Toast.LENGTH_SHORT).show();
-
-        //Gridlayoutmanager
+        //Gridlayout's
         mRecyclerView.setLayoutManager(new GridLayoutManager(this, gridColumnCount));
-        //Het maaltijdViewModel is geinstantieert
-        //Elke keer als het de activiteit opstart.
-        maaltijdenViewModel dummy = new maaltijdenViewModel(getApplication());
-        //maaltijdenViewModel onCreateModel = ViewModelProvider.AndroidViewModelFactory.getInstance(getApplication()).create(maaltijdenViewModel.class);
-        mModel = dummy;
+        mModel = new maaltijdenViewModel(getApplication());
+        //Laadt preferenceManager in
+        setupPreferences();
         //Set isVegaFilter
-        mModel.setVegaFilter(isVega);
-        mModel.setVeganFilter(isVegan);
-        Log.i("StartER", "Viewmodel boolean waardes ingevult");
-        if(savedInstanceState == null) {
-            mModel.haalMaaltijdenOp();
-            //Observer
-            mModel.getMaaltijdenBord().observe(this, maaltijds -> {
-                HuidigeMaaltijdenLijst = maaltijds;
-                mModel.setFilterMaaltijd(HuidigeMaaltijdenLijst);
-                restaurantAdapter.setList(mModel.getFilterMaaltijd());
-                toast(restaurantAdapter.getItemCount());
-                Log.i(TAG, "Grootte lijst: " + HuidigeMaaltijdenLijst.size());
-            });
-        } else{
-            HuidigeMaaltijdenLijst = savedInstanceState.getParcelableArrayList(saveCode);
-            Log.i(Debug, "Lijst is opgehaalt");
+        mModel.getMaaltijdenBord().observe(this, maaltijds -> {
+            HuidigeMaaltijdenLijst = maaltijds;
             mModel.setFilterMaaltijd(HuidigeMaaltijdenLijst);
             restaurantAdapter.setList(mModel.getFilterMaaltijd());
             toast(restaurantAdapter.getItemCount());
-        }
+        });
+    }
 
+    public void setupPreferences(){
+        PreferenceManager.setDefaultValues(this,R.xml.voorkeuren, false);
+        voorkeuren = PreferenceManager.getDefaultSharedPreferences(this);
+        Toast.makeText(this, "IsVega: " + voorkeuren.getBoolean(FilterMenu.KEY_VEGA, false) , Toast.LENGTH_SHORT).show();
+        mModel.setVegaFilter(voorkeuren.getBoolean(FilterMenu.KEY_VEGA, false));
+        mModel.setVeganFilter(voorkeuren.getBoolean(FilterMenu.KEY_VEGAN, false));
     }
 
     @Override
@@ -105,6 +85,15 @@ public class MainActivity extends AppCompatActivity {
         super.onSaveInstanceState(outState);
         Log.d("StartER", getString(R.string.opslaan));
         outState.putParcelableArrayList(saveCode, (ArrayList<? extends Parcelable>) HuidigeMaaltijdenLijst);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        HuidigeMaaltijdenLijst = savedInstanceState.getParcelableArrayList(saveCode);
+        mModel.setFilterMaaltijd(HuidigeMaaltijdenLijst);
+        restaurantAdapter.setList(mModel.getFilterMaaltijd());
+        toast(restaurantAdapter.getItemCount());
     }
 
     //Laat top bar zien
@@ -140,9 +129,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         Log.i("StartER", "ONSTART");
-        Intent intent = getIntent();
-        Gebruiker user = intent.getParcelableExtra(hulpGebruiker);
-        mGebruiker = user;
         super.onStart();
     }
 
@@ -152,20 +138,20 @@ public class MainActivity extends AppCompatActivity {
         Log.i("StartER", "Receive: " + requestCode + ", " + resultCode);
         if(requestCode == TEXT_REQUEST){
             if (resultCode == RESULT_OK){
-                mGebruiker = data.getParcelableExtra(InlogScherm.gebruikerKey);
+
             }
         }
     }
 
     @Override
     protected void onRestart() {
-        Log.i("StartER", "ONreSTART");
+        Log.i("StartER", "onRestart");
         boolean isVega = voorkeuren.getBoolean(FilterMenu.KEY_VEGA, false);
         boolean isVegan = voorkeuren.getBoolean(FilterMenu.KEY_VEGAN, false);
         mModel.setVegaFilter(isVega);
         mModel.setVeganFilter(isVegan);
 
-        if(HuidigeMaaltijdenLijst ==null ||  HuidigeMaaltijdenLijst.size() == 0){
+        if(HuidigeMaaltijdenLijst == null ||  HuidigeMaaltijdenLijst.size() == 0){
             Log.i(Debug, "Lijst is leeg");
             super.onRestart();
         }else{

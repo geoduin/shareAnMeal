@@ -3,6 +3,11 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/"
     tools:context="com.example.kookpagin">
+    <item
+        android:id="@+id/app_bar_search"
+        android:title="Search"
+        app:actionViewClass="android.widget.SearchView"
+        app:showAsAction="always" />
     <item android:id="@+id/setting"
         android:title="@string/filter"
         app:showAsAction="ifRoom" />

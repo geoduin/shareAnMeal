@@ -8,52 +8,52 @@ import androidx.annotation.NonNull;
 
 public class Gebruiker implements Parcelable {
     private Integer userID;
-    private String VoorNaam;
-    private String AchterNaam;
-    private String emailAddress;
+    private String firstName;
+    private String lastName;
+    private String emailAdress;
     private String telefoonNummer;
-    private String wachtWoord;
+    private String password;
     private boolean isActief;
-    private String stad;
+    private String city;
     private String street;
     private String role;
 
-    public Gebruiker(int ID, String voorNaam, String achterNaam, String emailAddress, String telefoonNummer, String wachtWoord, String city, String street, boolean isActief) {
+    public Gebruiker(Integer ID, String voorNaam, String achterNaam, String emailAddress, String telefoonNummer, String wachtWoord, String city, String street, boolean isActief) {
         this.userID = ID;
-        this.VoorNaam = voorNaam;
-        this.AchterNaam = achterNaam;
-        this.emailAddress = emailAddress;
+        this.firstName = voorNaam;
+        this.lastName = achterNaam;
+        this.emailAdress = emailAddress;
         this.telefoonNummer = telefoonNummer;
-        this.wachtWoord = wachtWoord;
+        this.password = wachtWoord;
         this.isActief = isActief;
-        this.stad = city;
+        this.city = city;
         this.street = street;
     }
 
-    public Gebruiker(int ID, String voorNaam, String achterNaam, String emailAddress, String telefoonNummer, String city, String street, String role){
+    public Gebruiker(Integer ID, String voorNaam, String achterNaam, String emailAddress, String telefoonNummer, String city, String street, String role){
         this.userID = ID;
-        this.VoorNaam = voorNaam;
-        this.AchterNaam = achterNaam;
-        this.emailAddress = emailAddress;
+        this.firstName = voorNaam;
+        this.lastName = achterNaam;
+        this.emailAdress = emailAddress;
         this.telefoonNummer = telefoonNummer;
-        this.wachtWoord = "";
+        this.password = "";
         this.isActief = true;
-        this.stad = city;
+        this.city = city;
         this.street = street;
         this.role = role;
     }
 
     protected Gebruiker(Parcel in) {
-        VoorNaam = in.readString();
-        AchterNaam = in.readString();
-        emailAddress = in.readString();
+        firstName = in.readString();
+        lastName = in.readString();
+        emailAdress = in.readString();
         telefoonNummer = in.readString();
-        wachtWoord = in.readString();
+        password = in.readString();
         userID = in.readInt();
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
             isActief = in.readBoolean();
         }
-        stad = in.readString();
+        city = in.readString();
         street = in.readString();
         role = in.readString();
     }
@@ -71,23 +71,23 @@ public class Gebruiker implements Parcelable {
     };
 
     public String getVoorNaam() {
-        return VoorNaam;
+        return firstName;
     }
 
     public void setVoorNaam(String voorNaam) {
-        VoorNaam = voorNaam;
+        firstName = voorNaam;
     }
 
     public String getAchterNaam() {
-        return AchterNaam;
+        return lastName;
     }
 
     public void setAchterNaam(String achterNaam) {
-        AchterNaam = achterNaam;
+        lastName = achterNaam;
     }
 
     public String getEmailAddress() {
-        return emailAddress;
+        return emailAdress;
     }
 
     public void setActief(boolean actief) {
@@ -96,7 +96,7 @@ public class Gebruiker implements Parcelable {
 
 
     public void setEmailAddress(String emailAddress) {
-        this.emailAddress = emailAddress;
+        this.emailAdress = emailAddress;
     }
 
     public String getTelefoonNummer() {
@@ -108,11 +108,11 @@ public class Gebruiker implements Parcelable {
     }
 
     public String getWachtWoord() {
-        return wachtWoord;
+        return password;
     }
 
     public void setWachtWoord(String wachtWoord) {
-        this.wachtWoord = wachtWoord;
+        this.password = wachtWoord;
     }
 
     @Override
@@ -122,22 +122,22 @@ public class Gebruiker implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeString(VoorNaam);
-        parcel.writeString(AchterNaam);
-        parcel.writeString(emailAddress);
+        parcel.writeString(firstName);
+        parcel.writeString(lastName);
+        parcel.writeString(emailAdress);
         parcel.writeString(telefoonNummer);
-        parcel.writeString(wachtWoord);
+        parcel.writeString(password);
         parcel.writeInt(userID);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
             parcel.writeBoolean(isActief);
         }
-        parcel.writeString(stad);
+        parcel.writeString(city);
         parcel.writeString(street);
         parcel.writeString(role);
     }
 
     public String getStad() {
-        return stad;
+        return city;
     }
 
     public String getStreet() {
@@ -150,6 +150,6 @@ public class Gebruiker implements Parcelable {
     @NonNull
     @Override
     public String toString() {
-        return String.format("%s:%s:%s:%s:%s:%s:%s:%s:%s:%s", userID,VoorNaam,AchterNaam,emailAddress,telefoonNummer,wachtWoord,isActief,stad,street,role);
+        return String.format("%s:%s:%s:%s:%s:%s:%s:%s:%s:%s", userID,firstName,lastName,emailAdress,telefoonNummer,password,isActief,city,street,role);
     }
 }

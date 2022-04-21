@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".UI.detailPagina"
+    android:orientation="vertical">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="10dp">
+
+
+        <ImageView
+            android:id="@+id/MaaltijdFoto"
+            android:layout_width="244dp"
+            android:layout_height="259dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="32dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <ImageView
+            android:id="@+id/profiel"
+            android:layout_width="105dp"
+            android:layout_height="88dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="28dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <CheckBox
+            android:id="@+id/Vegan"
+            android:layout_width="130dp"
+            android:layout_height="35dp"
+            android:layout_marginTop="4dp"
+            android:enabled="false"
+            android:text="@string/vegan"
+            app:layout_constraintStart_toStartOf="@+id/StadNaam"
+            app:layout_constraintTop_toBottomOf="@+id/StadNaam" />
+
+        <CheckBox
+            android:id="@+id/Vega"
+            android:layout_width="130dp"
+            android:layout_height="35dp"
+            android:checked="false"
+            android:enabled="false"
+            android:text="@string/vega"
+            app:layout_constraintStart_toStartOf="@+id/Vegan"
+            app:layout_constraintTop_toBottomOf="@+id/Vegan" />
+
+        <TextView
+            android:id="@+id/titel"
+            android:layout_width="103dp"
+            android:layout_height="29dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/title"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="@+id/Tekst"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/Beschrijving"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/beschrijving"
+            app:layout_constraintStart_toStartOf="@+id/titel"
+            app:layout_constraintTop_toBottomOf="@+id/titel" />
+
+        <TextView
+            android:id="@+id/DatumG"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="36dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/geserveerd_op"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/MaaltijdFoto" />
+
+        <TextView
+            android:id="@+id/Allergenen"
+            android:layout_width="94dp"
+            android:layout_height="21dp"
+            android:text="@string/allergenen"
+            app:layout_constraintStart_toStartOf="@+id/DatumG"
+            app:layout_constraintTop_toBottomOf="@+id/DatumG" />
+
+        <Button
+            android:id="@+id/AanmeldKnop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:gravity="center_horizontal|end"
+            android:onClick="aanmelding"
+            android:text="@string/aanmelden"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <TextView
+            android:id="@+id/date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            app:layout_constraintBottom_toBottomOf="@+id/DatumG"
+            app:layout_constraintStart_toEndOf="@+id/DatumG" />
+
+        <TextView
+            android:id="@+id/Tekst"
+            android:layout_width="290dp"
+            android:layout_height="257dp"
+            android:layout_marginStart="8dp"
+            app:layout_constraintStart_toEndOf="@+id/MaaltijdFoto"
+            app:layout_constraintTop_toBottomOf="@+id/Beschrijving" />
+
+        <TextView
+            android:id="@+id/Naam"
+            android:layout_width="90dp"
+            android:layout_height="19dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="TextView"
+            app:layout_constraintStart_toStartOf="@+id/profiel"
+            app:layout_constraintTop_toBottomOf="@+id/profiel" />
+
+        <TextView
+            android:id="@+id/StadNaam"
+            android:layout_width="90dp"
+            android:layout_height="20dp"
+            android:text="TextView"
+            app:layout_constraintStart_toStartOf="@+id/Naam"
+            app:layout_constraintTop_toBottomOf="@+id/Naam" />
+
+        <TextView
+            android:id="@+id/AllergenenLijst"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            app:layout_constraintBottom_toBottomOf="@+id/Allergenen"
+            app:layout_constraintStart_toEndOf="@+id/Allergenen" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

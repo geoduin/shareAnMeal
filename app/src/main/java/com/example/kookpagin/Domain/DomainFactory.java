@@ -12,10 +12,10 @@ public class DomainFactory {
         return new Maaltijd(naam, beschrijving, AfbeeldingsUrl, prijs, datum, gebruiker, maxBezoekers,  isActief,  takeAway, vega, vegan);
     }
 
-    public static Gebruiker maakGebruikerZonderWW(int id, String voorNaam, String achterNaam, String emailAddress, String telefoonNummer, String wachtwoord, String city, String street, boolean isActive){
+    public static Gebruiker maakGebruikerZonderWW(Integer id, String voorNaam, String achterNaam, String emailAddress, String telefoonNummer, String wachtwoord, String city, String street, boolean isActive){
         return new Gebruiker(id, voorNaam, achterNaam, emailAddress, telefoonNummer,wachtwoord, city,street,isActive);
     }
-    public static Gebruiker maakGebruikerMetID(int id, String voorNaam, String achterNaam, String emailAddress, String telefoonNummer, String city, String street, String role){
+    public static Gebruiker maakGebruikerMetID(Integer id, String voorNaam, String achterNaam, String emailAddress, String telefoonNummer, String city, String street, String role){
         return new Gebruiker(id, voorNaam, achterNaam, emailAddress, telefoonNummer, city,street, role);
     }
 
