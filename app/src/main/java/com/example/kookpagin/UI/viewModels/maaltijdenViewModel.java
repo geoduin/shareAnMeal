@@ -10,7 +10,7 @@ import com.example.kookpagin.Domain.Maaltijd;
 
 import java.util.ArrayList;
 import java.util.List;
-//Viewmodel voor de maaltijden
+//Viewmodel voor de maaltijden//
 //Houdt veranderingen van de livedata in de gaten
 //Is verantwoordelijk voor het ophalen van de maaltijden en het filteren daarvan
 public class maaltijdenViewModel extends AndroidViewModel {
