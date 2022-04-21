@@ -26,8 +26,11 @@ public class Registratie extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registratie);
-
         //Wijst editText views aan de xml-onderdelen
+        loadUIComponents();
+    }
+
+    public void loadUIComponents(){
         mVoor = findViewById(R.id.VoornaamVeld);
         mAchter= findViewById(R.id.achternaamVeld);
         mMail = findViewById(R.id.emailVeld);

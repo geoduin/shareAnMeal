@@ -24,9 +24,14 @@ public class InlogScherm extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inlog_scherm);
         Log.i(logInlog, "Log in gemaakt");
+        loadUI();
+    }
+
+    public void loadUI(){
         mEmail = findViewById(R.id.EmailAddressField);
         mWachtwoord = findViewById(R.id.wachtwoordVeld);
     }
+
 
     public void logIn(View view) {
         Intent intent = new Intent(this, MainActivity.class);
@@ -42,7 +47,6 @@ public class InlogScherm extends AppCompatActivity {
     }
 
     public void registeren(View view) {
-
         Intent intent = new Intent(this, Registratie.class);
         startActivity(intent);
         Log.w(logInlog, "Placeholder methode. Doet niets");

@@ -17,7 +17,7 @@ import java.util.List;
 public class MaaltijdExterneRepo {
 
     public MutableLiveData<List<Maaltijd>> maaltijdenLijst;
-    private static volatile MaaltijdExterneRepo instance;
+    private static MaaltijdExterneRepo instance;
     private static final String retrieveTag = "Retrieve";
     private static final String error =  "Error";
     private Application application;
@@ -25,7 +25,9 @@ public class MaaltijdExterneRepo {
 
     public MaaltijdExterneRepo(Application app){
         application = app;
-        this.maaltijdenLijst = new MutableLiveData<>();
+        async = new externeMaaltijdOphaler(application);
+        this.maaltijdenLijst = async.getAsyncMaaltijdenLijst();
+        voerOphaalTaskUit();
     }
 
     public static MaaltijdExterneRepo instance(Application app){
