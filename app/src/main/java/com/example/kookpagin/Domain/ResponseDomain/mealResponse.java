@@ -1,4 +1,6 @@
-package com.example.kookpagin.Domain;
+package com.example.kookpagin.Domain.ResponseDomain;
+
+import com.example.kookpagin.Domain.Maaltijd;
 
 import java.util.List;
 

@@ -1,4 +1,6 @@
-package com.example.kookpagin.Domain;
+package com.example.kookpagin.Domain.ResponseDomain;
+
+import com.example.kookpagin.Domain.User;
 
 public class LoginResponse {
     // De API retourneert altijd  { result: <je resultaat> }

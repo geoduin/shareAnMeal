@@ -1,16 +1,10 @@
-package com.example.kookpagin.Logic;
+package com.example.kookpagin.Data.AsyncDataOphalers;
 
 import android.net.Uri;
 import android.util.Log;
 
 import com.example.kookpagin.Domain.Gebruiker;
-import com.example.kookpagin.Domain.LoginResponse;
-import com.example.kookpagin.Domain.Maaltijd;
-import com.example.kookpagin.Domain.mealResponse;
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-
-import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -19,14 +13,6 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.List;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.http.Path;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 public class JSONOphaler {
     //JSON Request

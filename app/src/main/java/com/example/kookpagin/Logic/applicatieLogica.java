@@ -1,15 +1,12 @@
 package com.example.kookpagin.Logic;
 
-import android.net.NetworkInfo;
 import android.util.Log;
 
-import com.example.kookpagin.Data.DaoInterface;
+import com.example.kookpagin.Data.AsyncDataOphalers.DaoInterface;
 import com.example.kookpagin.Domain.DomainFactory;
-import com.example.kookpagin.Domain.Gebruiker;
 import com.example.kookpagin.Domain.Ingrediënt;
 
 import java.util.List;
-import java.util.Random;
 
 public class applicatieLogica {
     private DaoInterface dataOpslag;

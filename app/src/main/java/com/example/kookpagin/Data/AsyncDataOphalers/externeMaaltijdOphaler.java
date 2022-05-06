@@ -1,4 +1,4 @@
-package com.example.kookpagin.Logic;
+package com.example.kookpagin.Data.AsyncDataOphalers;
 
 import android.app.Application;
 import android.os.AsyncTask;
@@ -6,6 +6,7 @@ import android.util.Log;
 
 import androidx.lifecycle.MutableLiveData;
 
+import com.example.kookpagin.Data.AsyncDataOphalers.JSONOphaler;
 import com.example.kookpagin.Data.MaaltijdExterneRepo;
 import com.example.kookpagin.Domain.DomainFactory;
 import com.example.kookpagin.Domain.Gebruiker;

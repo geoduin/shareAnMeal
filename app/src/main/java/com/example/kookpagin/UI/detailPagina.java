@@ -13,15 +13,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
-import com.example.kookpagin.Data.DaoInterface;
+import com.example.kookpagin.Data.AsyncDataOphalers.DaoInterface;
 import com.example.kookpagin.Domain.DomainFactory;
-import com.example.kookpagin.Domain.Ingrediënt;
 import com.example.kookpagin.Domain.Maaltijd;
 import com.example.kookpagin.Logic.applicatieLogica;
 import com.example.kookpagin.R;
-
-import java.time.LocalDate;
-import java.util.List;
 
 public class detailPagina extends AppCompatActivity {
     private static String tag = "Jul";
@@ -49,7 +45,7 @@ public class detailPagina extends AppCompatActivity {
         saveFieldsToClass();
         fillActivityLayout(maaltijd);
         Boolean man  = PreferenceManager.getDefaultSharedPreferences(this).getBoolean(FilterMenu.KEY_VEGA, false);
-        Toast.makeText(this, "Status is " + man , Toast.LENGTH_SHORT);
+        Toast.makeText(this, "Status is " + man , Toast.LENGTH_SHORT).show();
     }
 
     //Wijst onderdelen toe aan de xml

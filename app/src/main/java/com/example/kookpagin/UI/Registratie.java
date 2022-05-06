@@ -1,8 +1,6 @@
 package com.example.kookpagin.UI;
 
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.preference.PreferenceFragmentCompat;
 
 import android.os.Bundle;
 import android.view.View;
@@ -11,7 +9,7 @@ import android.widget.Toast;
 
 import com.example.kookpagin.Domain.DomainFactory;
 import com.example.kookpagin.Domain.Gebruiker;
-import com.example.kookpagin.Logic.registratiess;
+import com.example.kookpagin.Data.AsyncDataOphalers.registratiess;
 import com.example.kookpagin.R;
 
 public class Registratie extends AppCompatActivity {

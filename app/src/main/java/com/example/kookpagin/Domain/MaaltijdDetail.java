@@ -1,5 +1,4 @@
 package com.example.kookpagin.Domain;
 
-public class meals {
-
+public class MaaltijdDetail {
 }

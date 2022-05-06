@@ -9,7 +9,7 @@ import android.util.Log;
 import androidx.lifecycle.MutableLiveData;
 
 import com.example.kookpagin.Domain.Maaltijd;
-import com.example.kookpagin.Logic.externeMaaltijdOphaler;
+import com.example.kookpagin.Data.AsyncDataOphalers.externeMaaltijdOphaler;
 
 import java.util.List;
 

@@ -15,8 +15,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-import com.example.kookpagin.Data.DaoInterface;
-import com.example.kookpagin.Domain.Gebruiker;
+import com.example.kookpagin.Data.AsyncDataOphalers.DaoInterface;
 import com.example.kookpagin.Domain.Maaltijd;
 import com.example.kookpagin.Domain.DomainFactory;
 import com.example.kookpagin.Logic.applicatieLogica;

@@ -1,17 +1,14 @@
-package com.example.kookpagin.Logic;
+package com.example.kookpagin.Data.AsyncDataOphalers;
 
-import com.example.kookpagin.Domain.LoginResponse;
-import com.example.kookpagin.Domain.Maaltijd;
-import com.example.kookpagin.Domain.mealResponse;
-
-import java.util.List;
+import com.example.kookpagin.Domain.ResponseDomain.LoginResponse;
+import com.example.kookpagin.Domain.ResponseDomain.mealResponse;
+import com.example.kookpagin.Logic.LoginData;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
 import retrofit2.http.POST;
-import retrofit2.http.Path;
 
 public interface Ophaler {
 
