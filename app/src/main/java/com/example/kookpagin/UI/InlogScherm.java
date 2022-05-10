@@ -1,17 +1,21 @@
 package com.example.kookpagin.UI;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.lifecycle.ViewModelProviders;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.kookpagin.Domain.Gebruiker;
 import com.example.kookpagin.Logic.applicatieLogica;
 import com.example.kookpagin.MainActivity;
 import com.example.kookpagin.R;
+import com.example.kookpagin.UI.viewModels.GebruikerViewModel;
 
 public class InlogScherm extends AppCompatActivity {
     private EditText mEmail;
@@ -19,11 +23,20 @@ public class InlogScherm extends AppCompatActivity {
     private applicatieLogica mLogica;
     public static final String gebruikerKey= "key";
     public static final String logInlog= "inlogClass";
+    private GebruikerViewModel mGebruikerModel;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inlog_scherm);
         Log.i(logInlog, "Log in gemaakt");
+        mGebruikerModel = ViewModelProviders.of(this).get(GebruikerViewModel.class);
+        mGebruikerModel.getGebruiker().observe(this, gebruiker->{
+            Intent intent = new Intent(this, MainActivity.class);
+            Toast.makeText(this, "User: " + gebruiker.getEmailAdress() + "has logged in", Toast.LENGTH_SHORT).show();
+            setResult(RESULT_OK, intent);
+            finish();
+        });
         loadUI();
     }
 
@@ -37,13 +50,11 @@ public class InlogScherm extends AppCompatActivity {
         Intent intent = new Intent(this, MainActivity.class);
         String email = mEmail.getText().toString();
         String wachtwoord = mWachtwoord.getText().toString();
-        Gebruiker user = new Gebruiker(1,"Xin", "Xiang", "Xin20Wang@outlook.com", "097789", "Lekker", "Rotterdam","kLEINEStraat",true);
-        //Inlog functionaliteit
-        Log.i(logInlog, "Gebruiker ingelogt");
-        Log.w(logInlog, "Functionaliteit nog niet in werking");
-        intent.putExtra(gebruikerKey, user);
-        setResult(RESULT_OK, intent);
-        finish();
+        mGebruikerModel.applyLogin(email, wachtwoord);
+        Log.e(logInlog, "Functionaliteit nog niet in werking");
+//        intent.putExtra(gebruikerKey, user);
+//        setResult(RESULT_OK, intent);
+//        finish();
     }
 
     public void registeren(View view) {

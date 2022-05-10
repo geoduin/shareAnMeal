@@ -1,6 +1,7 @@
 package com.example.kookpagin.Data;
 
 import android.app.Application;
+import android.util.Log;
 
 import androidx.lifecycle.MutableLiveData;
 
@@ -23,12 +24,12 @@ public class MaaltijdDetailRepo {
     private static MaaltijdDetailRepo instance;
 
     public MaaltijdDetailRepo(Application app){
-        this.mDetailMaaltijd = new MutableLiveData<>();
         this.mApplication = app;
+        this.mDetailMaaltijd = new MutableLiveData<>();
     }
 
     public static MaaltijdDetailRepo instance(Application app){
-        if(instance != null){
+        if(instance == null){
             instance = new MaaltijdDetailRepo(app);
         }
         return instance;
@@ -47,23 +48,21 @@ public class MaaltijdDetailRepo {
         Gson gson = new GsonBuilder().setLenient().create();
         Retrofit retro = new Retrofit.Builder()
                 .baseUrl(baseUrl)
-                .addConverterFactory(GsonConverterFactory.create())
+                .addConverterFactory(GsonConverterFactory.create(gson))
                 .build();
         ShareAPI shareAPI = retro.create(ShareAPI.class);
-        //Request body
-        //Object o = new Object(Attribute)
         Call<MaaltijdDetailResponse> request = shareAPI.haalDetailMaaltijd(mealId);
         request.enqueue(new Callback<MaaltijdDetailResponse>() {
             @Override
             public void onResponse(Call<MaaltijdDetailResponse> call, Response<MaaltijdDetailResponse> response) {
-
-
-                //mDetailMaaltijd.setValue();
+                if(response.isSuccessful()){
+                    MaaltijdDetail maaltijd = response.body().getMaaltijdDetail();
+                    mDetailMaaltijd.setValue(maaltijd);
+                }
             }
-
             @Override
             public void onFailure(Call<MaaltijdDetailResponse> call, Throwable t) {
-
+                Log.e("error", t.getMessage());
             }
         });
         //Response

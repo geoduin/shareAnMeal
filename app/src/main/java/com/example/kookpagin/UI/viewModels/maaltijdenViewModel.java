@@ -31,17 +31,6 @@ public class maaltijdenViewModel extends AndroidViewModel {
         return maaltijdenBord;
     }
 
-    public void haalMaaltijdenOp(){
-        boolean isConnected = externeRepo.checkWifi();
-        if(isConnected){
-            //Voert async task uit om maaltijden op te halen.
-            externeRepo.voerOphaalTaskUit();
-            maaltijdenBord = externeRepo.getMaaltijdenLijst();
-        } else{
-            //Anders haalt het een lege lijst op.
-            maaltijdenBord = externeRepo.getMaaltijdenLijst();
-        }
-    }
 
     //Ontvangt alle maaltijden, ter voorbereiding voor het filteren daarvan
     public void setFilterMaaltijd(List<Maaltijd> filterMaaltijd) {

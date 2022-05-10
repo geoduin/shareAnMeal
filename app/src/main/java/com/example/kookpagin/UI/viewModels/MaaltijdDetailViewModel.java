@@ -24,7 +24,7 @@ public class MaaltijdDetailViewModel extends AndroidViewModel {
         return repo;
     }
 
-    public MutableLiveData<MaaltijdDetail> getDetailMaaltijd() {
+    public MutableLiveData<MaaltijdDetail> getDetail() {
         return mDetail;
     }
 

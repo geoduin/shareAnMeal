@@ -43,6 +43,7 @@
             android:layout_marginTop="4dp"
             android:enabled="false"
             android:text="@string/vegan"
+            android:textColor="#000000"
             app:layout_constraintStart_toStartOf="@+id/StadNaam"
             app:layout_constraintTop_toBottomOf="@+id/StadNaam" />
 
@@ -53,6 +54,7 @@
             android:checked="false"
             android:enabled="false"
             android:text="@string/vega"
+            android:textColor="#000000"
             app:layout_constraintStart_toStartOf="@+id/Vegan"
             app:layout_constraintTop_toBottomOf="@+id/Vegan" />
 
@@ -62,6 +64,7 @@
             android:layout_height="29dp"
             android:layout_marginTop="20dp"
             android:text="@string/titel"
+            android:textColor="#000000"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.057"
@@ -74,6 +77,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
             android:text="@string/beschrijving"
+            android:textColor="#000000"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.056"
             app:layout_constraintStart_toStartOf="parent"
@@ -85,6 +89,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
             android:text="@string/geserveerd_op"
+            android:textColor="#000000"
             app:layout_constraintBottom_toTopOf="@+id/Allergenen"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/Tekst" />
@@ -95,6 +100,7 @@
             android:layout_height="21dp"
             android:layout_marginBottom="40dp"
             android:text="@string/allergenen"
+            android:textColor="#000000"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="@+id/DatumG" />
 
@@ -115,6 +121,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
+            android:textColor="#000000"
             app:layout_constraintBottom_toBottomOf="@+id/DatumG"
             app:layout_constraintStart_toEndOf="@+id/DatumG" />
 
@@ -122,6 +129,7 @@
             android:id="@+id/Tekst"
             android:layout_width="309dp"
             android:layout_height="261dp"
+            android:textColor="#000000"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.204"
             app:layout_constraintStart_toStartOf="parent"
@@ -134,6 +142,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:text="TextView"
+            android:textColor="#000000"
             app:layout_constraintStart_toStartOf="@+id/profiel"
             app:layout_constraintTop_toBottomOf="@+id/profiel" />
 
@@ -142,6 +151,7 @@
             android:layout_width="130dp"
             android:layout_height="20dp"
             android:text="TextView"
+            android:textColor="#000000"
             app:layout_constraintStart_toStartOf="@+id/Naam"
             app:layout_constraintTop_toBottomOf="@+id/Naam" />
 
@@ -150,6 +160,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
+            android:textColor="#000000"
             app:layout_constraintStart_toEndOf="@+id/Allergenen"
             app:layout_constraintTop_toTopOf="@+id/Allergenen" />
     </androidx.constraintlayout.widget.ConstraintLayout>

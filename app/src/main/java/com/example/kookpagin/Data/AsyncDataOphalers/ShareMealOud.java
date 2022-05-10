@@ -10,15 +10,15 @@ import retrofit2.http.GET;
 import retrofit2.http.Header;
 import retrofit2.http.POST;
 
-public interface Ophaler {
+public interface ShareMealOud {
 
-    @GET("api/meal")
-    Call<mealResponse> haalMaaltijdenOp();
+    @GET("/api/meal")
+    Call<mealResponse> haalMaaltijdenOudOp();
 
-    @POST("api/auth/login")
+    @POST("/api/auth/login")
     Call<LoginResponse> login(@Body() LoginData loginData);
 
-    @GET("api/user/profile")
+    @GET("/api/user/profile")
     Call<LoginResponse> getUserProfile(@Header("Authorization") String token);
 
 

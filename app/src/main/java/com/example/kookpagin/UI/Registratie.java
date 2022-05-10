@@ -6,10 +6,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
-
-import com.example.kookpagin.Domain.DomainFactory;
-import com.example.kookpagin.Domain.Gebruiker;
-import com.example.kookpagin.Data.AsyncDataOphalers.registratiess;
 import com.example.kookpagin.R;
 
 public class Registratie extends AppCompatActivity {
@@ -47,11 +43,10 @@ public class Registratie extends AppCompatActivity {
         String stad= mStad.getText().toString();
         String straat = mStraat.getText().toString();
         String rol = "";
-        Gebruiker user = DomainFactory.maakGebruikerZonderWW(id, voornaam,achternaam,mail, null, ww,stad, straat,true);
+        //Gebruiker user = DomainFactory.maakGebruikerZonderWW(id, voornaam,achternaam,mail, null, ww,stad, straat,true);
         //Placeholder actie
         Toast.makeText(this,"Gebruiker aangemaakt", Toast.LENGTH_SHORT).show();
-        registratiess aa = new registratiess();
-        aa.execute(user);
+        //aa.execute(user);
     }
 
 

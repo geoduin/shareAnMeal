@@ -16,11 +16,14 @@ import com.bumptech.glide.Glide;
 import com.example.kookpagin.Data.AsyncDataOphalers.DaoInterface;
 import com.example.kookpagin.Domain.DomainFactory;
 import com.example.kookpagin.Domain.Maaltijd;
+import com.example.kookpagin.Domain.MaaltijdDetail;
 import com.example.kookpagin.Logic.applicatieLogica;
 import com.example.kookpagin.R;
+import com.example.kookpagin.UI.viewModels.*;
 
 public class detailPagina extends AppCompatActivity {
     private static String tag = "Jul";
+    private MaaltijdDetailViewModel mDetailModel;
     private applicatieLogica logica;
     private ImageView image;
     private ImageView profiel;
@@ -41,7 +44,15 @@ public class detailPagina extends AppCompatActivity {
         DaoInterface DaoDB = null;
         logica = new applicatieLogica(DaoDB, new DomainFactory());
         Intent intent = getIntent();
-        Maaltijd maaltijd = (Maaltijd)intent.getParcelableExtra(tag);
+        Maaltijd maaltijd = (Maaltijd)intent.getSerializableExtra(tag);
+
+        //Haalt maaltijd detail op
+        mDetailModel = new MaaltijdDetailViewModel(getApplication());
+        mDetailModel.retrieveMeal(maaltijd.getMaaltijdID());
+        mDetailModel.getDetail().observe(this, meal -> {
+            MaaltijdDetail m = meal;
+            Log.i("Hello", m.toString());
+        });
         saveFieldsToClass();
         fillActivityLayout(maaltijd);
         Boolean man  = PreferenceManager.getDefaultSharedPreferences(this).getBoolean(FilterMenu.KEY_VEGA, false);
@@ -70,7 +81,7 @@ public class detailPagina extends AppCompatActivity {
         titel.setText(maaltijd.getNaam());
         stad.setText(maaltijd.getStad());
         beschrijving.setText(maaltijd.getBeschrijving());
-        allergenen.setText(logica.geefAllergenenTerug(maaltijd.getAllergenenLijst()));
+        allergenen.setText(logica.geefAllergenenTerug(maaltijd.getAllergenen()));
         datum.setText(maaltijd.haalDatum());
         vega.setChecked(maaltijd.isVega());
         vegan.setChecked(maaltijd.isVegan());

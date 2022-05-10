@@ -6,69 +6,42 @@ import android.os.Parcelable;
 
 import androidx.annotation.NonNull;
 
-public class Gebruiker implements Parcelable {
+import com.google.gson.annotations.SerializedName;
+
+import java.io.Serializable;
+import java.util.Arrays;
+
+public class Gebruiker implements Serializable {
+    @SerializedName("id")
     private Integer userID;
+    @SerializedName("firstName")
     private String firstName;
+    @SerializedName("lastName")
     private String lastName;
+    @SerializedName("emailAdress")
     private String emailAdress;
+    @SerializedName("phoneNumber")
     private String telefoonNummer;
-    private String password;
+    @SerializedName("isActive")
     private boolean isActief;
+    @SerializedName("city")
     private String city;
+    @SerializedName("street")
     private String street;
-    private String role;
+    @SerializedName("roles")
+    private String[] role;
 
-    public Gebruiker(Integer ID, String voorNaam, String achterNaam, String emailAddress, String telefoonNummer, String wachtWoord, String city, String street, boolean isActief) {
-        this.userID = ID;
-        this.firstName = voorNaam;
-        this.lastName = achterNaam;
-        this.emailAdress = emailAddress;
+    public Gebruiker(Integer userID, String firstName, String lastName, String emailAdress, String telefoonNummer, boolean isActief, String city, String street, String[] role) {
+        this.userID = userID;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.emailAdress = emailAdress;
         this.telefoonNummer = telefoonNummer;
-        this.password = wachtWoord;
         this.isActief = isActief;
-        this.city = city;
-        this.street = street;
-    }
-
-    public Gebruiker(Integer ID, String voorNaam, String achterNaam, String emailAddress, String telefoonNummer, String city, String street, String role){
-        this.userID = ID;
-        this.firstName = voorNaam;
-        this.lastName = achterNaam;
-        this.emailAdress = emailAddress;
-        this.telefoonNummer = telefoonNummer;
-        this.password = "";
-        this.isActief = true;
         this.city = city;
         this.street = street;
         this.role = role;
     }
-
-    protected Gebruiker(Parcel in) {
-        firstName = in.readString();
-        lastName = in.readString();
-        emailAdress = in.readString();
-        telefoonNummer = in.readString();
-        password = in.readString();
-        userID = in.readInt();
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-            isActief = in.readBoolean();
-        }
-        city = in.readString();
-        street = in.readString();
-        role = in.readString();
-    }
-
-    public static final Creator<Gebruiker> CREATOR = new Creator<Gebruiker>() {
-        @Override
-        public Gebruiker createFromParcel(Parcel in) {
-            return new Gebruiker(in);
-        }
-
-        @Override
-        public Gebruiker[] newArray(int size) {
-            return new Gebruiker[size];
-        }
-    };
 
     public String getVoorNaam() {
         return firstName;
@@ -107,35 +80,6 @@ public class Gebruiker implements Parcelable {
         this.telefoonNummer = telefoonNummer;
     }
 
-    public String getWachtWoord() {
-        return password;
-    }
-
-    public void setWachtWoord(String wachtWoord) {
-        this.password = wachtWoord;
-    }
-
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    @Override
-    public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeString(firstName);
-        parcel.writeString(lastName);
-        parcel.writeString(emailAdress);
-        parcel.writeString(telefoonNummer);
-        parcel.writeString(password);
-        parcel.writeInt(userID);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-            parcel.writeBoolean(isActief);
-        }
-        parcel.writeString(city);
-        parcel.writeString(street);
-        parcel.writeString(role);
-    }
-
     public String getStad() {
         return city;
     }
@@ -150,6 +94,6 @@ public class Gebruiker implements Parcelable {
     @NonNull
     @Override
     public String toString() {
-        return String.format("%s:%s:%s:%s:%s:%s:%s:%s:%s:%s", userID,firstName,lastName,emailAdress,telefoonNummer,password,isActief,city,street,role);
+        return String.format("%s:%s:%s:%s:%s:%s:%s:%s:%s", userID,firstName,lastName,emailAdress,telefoonNummer,isActief,city,street, Arrays.toString(role));
     }
 }

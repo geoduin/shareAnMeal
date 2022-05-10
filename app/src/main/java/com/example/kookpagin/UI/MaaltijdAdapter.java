@@ -15,6 +15,7 @@ import com.bumptech.glide.Glide;
 import com.example.kookpagin.Domain.Maaltijd;
 import com.example.kookpagin.R;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -48,7 +49,7 @@ public class MaaltijdAdapter extends RecyclerView.Adapter<MaaltijdAdapter.Maalti
         //Wijst de attributen toe aan ieder maaltijd_recycle_item binnen de holder
         holder.titel.setText(maaltijd.getNaam());
         holder.datum.setText(maaltijd.haalDatum());
-        holder.prijs.setText(Double.toString(maaltijd.getPrijs()));
+        holder.prijs.setText(maaltijd.getPrijs());
         holder.stad.setText(maaltijd.getStad());
         Glide.with(mContext).load(maaltijd.getAfbeeldingsUrl()).into(holder.image);
         Log.i(logger, "Maaltijd toegewezen aan een viewholder");
@@ -94,7 +95,7 @@ public class MaaltijdAdapter extends RecyclerView.Adapter<MaaltijdAdapter.Maalti
             Log.i(logger, "Transitie naar detailPagina");
             mMaaltijd = list.get(getLayoutPosition());
             Intent intent = new Intent(mContext, detailPagina.class);
-            intent.putExtra(oke, (Parcelable) mMaaltijd);
+            intent.putExtra(oke, (Serializable) mMaaltijd);
             mContext.startActivity(intent);
         }
     }

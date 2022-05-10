@@ -22,6 +22,7 @@ import com.example.kookpagin.Logic.applicatieLogica;
 import com.example.kookpagin.UI.*;
 import com.example.kookpagin.UI.viewModels.maaltijdenViewModel;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 //
@@ -83,13 +84,13 @@ public class MainActivity extends AppCompatActivity {
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         Log.d("StartER", getString(R.string.opslaan));
-        outState.putParcelableArrayList(saveCode, (ArrayList<? extends Parcelable>) HuidigeMaaltijdenLijst);
+        outState.putSerializable(saveCode, (Serializable) HuidigeMaaltijdenLijst);
     }
 
     @Override
     protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
-        HuidigeMaaltijdenLijst = savedInstanceState.getParcelableArrayList(saveCode);
+        HuidigeMaaltijdenLijst = (List<Maaltijd>) savedInstanceState.getSerializable(saveCode);
         mModel.setFilterMaaltijd(HuidigeMaaltijdenLijst);
         restaurantAdapter.setList(mModel.getFilterMaaltijd());
         toast(restaurantAdapter.getItemCount());

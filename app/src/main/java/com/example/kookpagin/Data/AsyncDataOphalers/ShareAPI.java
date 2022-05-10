@@ -11,7 +11,7 @@ import retrofit2.http.Path;
 
 public interface ShareAPI {
 
-    @GET("api/user")
+    @GET("api/meal")
     Call<MaaltijdResponse> haalMaaltijdenOp();
 
     @GET("api/meal/{id}")
